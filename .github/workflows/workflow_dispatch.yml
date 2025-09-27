@@ -1,0 +1,16 @@
+name: Process Guess
+
+on:
+  workflow_dispatch: # <- allows manual triggering
+    inputs:
+      guess:
+        description: "Enter your guess"
+        required: true
+        default: "APPLE"
+
+jobs:
+  process-guess:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the guess
+        run: echo "The guess is ${{ github.event.inputs.guess }}"
